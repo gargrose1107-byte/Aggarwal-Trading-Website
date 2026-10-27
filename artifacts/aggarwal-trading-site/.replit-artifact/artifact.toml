@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "Aggarwal Trading"
+description = "A responsive product and company website for Aggarwal Trading, showcasing precision-moulded plastic furniture fittings and helping customers request a quote."
+version = "1.0.0"
+id = "artifacts/aggarwal-trading-site"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 26219
+
+[services.development]
+run = "pnpm --filter @workspace/aggarwal-trading-site run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/aggarwal-trading-site", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/aggarwal-trading-site/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "26219"
+BASE_PATH = "/"
