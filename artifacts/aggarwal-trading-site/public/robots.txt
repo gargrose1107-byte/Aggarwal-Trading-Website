@@ -1,2 +1,3 @@
 User-agent: *
 Allow: /
+Sitemap: https://aggarwal-trading-website--gargrose1107.replit.app/sitemap.xml
